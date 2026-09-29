@@ -1,0 +1,5 @@
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/grpc-enrichment-client/src/main/java/com/github/egorkrylov/grpcenrichment/GrpcEnrichmentClientApplication.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/grpc-enrichment-client/src/main/java/com/github/egorkrylov/grpcenrichment/config/GrpcClientConfig.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/grpc-enrichment-client/src/main/java/com/github/egorkrylov/grpcenrichment/config/RabbitMQConfig.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/grpc-enrichment-client/src/main/java/com/github/egorkrylov/grpcenrichment/listener/RoomCreatedListener.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/grpc-enrichment-client/src/main/java/com/github/egorkrylov/grpcenrichment/publisher/EnrichmentEventPublisher.java

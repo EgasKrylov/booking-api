@@ -1,0 +1,3 @@
+com/github/egorkrylov/grpcanalytics/GrpcAnalyticsServerApplication.class
+com/github/egorkrylov/grpcanalytics/config/GrpcServerLifecycle.class
+com/github/egorkrylov/grpcanalytics/service/RoomAnalyticsServiceImpl.class

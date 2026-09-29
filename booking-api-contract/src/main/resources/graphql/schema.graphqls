@@ -1,0 +1,181 @@
+scalar Date
+scalar DateTime
+
+
+type Guest {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String
+    birthDate: Date!
+    passportSeries: String!
+    passportNumber: String!
+    version: Int
+
+    bookings(page: Int = 0, size: Int = 20): BookingConnection!
+}
+
+type Booking {
+    id: ID!
+    guest: Guest!
+    room: Room!
+    checkInDate: Date!
+    checkOutDate: Date!
+    guestCount: Int!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    version: Int
+}
+
+type Room {
+    id: ID!
+    roomNumber: Int!
+    roomType: String!
+    capacity: Int!
+    price: Float!
+    description: String
+    version: Int
+}
+
+
+
+type GuestConnection {
+    content: [Guest!]!
+    pageInfo: PageInfo!
+    totalElements: Int!
+}
+
+type BookingConnection {
+    content: [Booking!]!
+    pageInfo: PageInfo!
+    totalElements: Int!
+}
+
+type RoomConnection {
+    content: [Room!]!
+    pageInfo: PageInfo!
+    totalElements: Int!
+}
+
+type PageInfo {
+    pageNumber: Int!
+    pageSize: Int!
+    totalPages: Int!
+    last: Boolean!
+}
+
+
+input CreateGuestInput {
+    firstName: String!
+    lastName: String!
+    email: String
+    birthDate: Date!
+    passportSeries: String!
+    passportNumber: String!
+}
+
+input UpdateGuestInput {
+    firstName: String!
+    lastName: String!
+    email: String
+    birthDate: Date!
+    passportSeries: String!
+    passportNumber: String!
+}
+
+input PatchGuestInput {
+    firstName: String
+    lastName: String
+    email: String
+    birthDate: Date
+    passportSeries: String
+    passportNumber: String
+}
+
+input CreateRoomInput {
+    roomNumber: Int!
+    roomType: String!
+    capacity: Int!
+    price: Float!
+    description: String!
+}
+
+input UpdateRoomInput {
+    roomNumber: Int!
+    roomType: String!
+    capacity: Int!
+    price: Float!
+    description: String!
+}
+
+input PatchRoomInput {
+    roomNumber: Int
+    roomType: String
+    capacity: Int
+    price: Float
+    description: String
+}
+
+input CreateBookingInput {
+    guestId: ID!
+    roomId: ID!
+    checkInDate: Date!
+    checkOutDate: Date!
+    guestCount: Int!
+}
+
+input UpdateBookingInput {
+    roomId: ID!
+    checkInDate: Date!
+    checkOutDate: Date!
+    guestCount: Int!
+}
+
+input PatchBookingInput {
+    roomId: ID
+    checkInDate: Date
+    checkOutDate: Date
+    guestCount: Int
+}
+
+
+
+type Query {
+    guest(id: ID!): Guest
+
+    guests(page: Int = 0, size: Int = 20): GuestConnection!
+
+    booking(id: ID!): Booking
+
+    bookings(page: Int = 0, size: Int = 20): BookingConnection!
+
+    room(id: ID!): Room
+
+    rooms(page: Int = 0, size: Int = 20): RoomConnection!
+}
+
+type Mutation {
+    createGuest(input: CreateGuestInput!): Guest!
+
+    updateGuest(id: ID!, input: UpdateGuestInput!): Guest!
+
+    patchGuest(id: ID!, input: PatchGuestInput!): Guest!
+
+    deleteGuest(id: ID!): Boolean!
+
+    createRoom(input: CreateRoomInput!): Room!
+
+    updateRoom(id: ID!, input: UpdateRoomInput!): Room!
+
+    patchRoom(id: ID!, input: PatchRoomInput!): Room!
+
+    deleteRoom(id: ID!): Boolean!
+
+    createBooking(input: CreateBookingInput!): Booking!
+
+    updateBooking(id: ID!, input: UpdateBookingInput!): Booking!
+
+    patchBooking(id: ID!, input: PatchBookingInput!): Booking!
+
+    deleteBooking(id: ID!): Boolean!
+}

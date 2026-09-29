@@ -1,0 +1,6 @@
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-grpc-contract/target/generated-sources/protobuf/grpc-java/com/github/egorkrylov/grpc/RoomAnalyticsGrpc.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-grpc-contract/target/generated-sources/protobuf/java/com/github/egorkrylov/grpc/AnalyzeRoomRequest.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-grpc-contract/target/generated-sources/protobuf/java/com/github/egorkrylov/grpc/AnalyzeRoomRequestOrBuilder.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-grpc-contract/target/generated-sources/protobuf/java/com/github/egorkrylov/grpc/AnalyzeRoomResponse.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-grpc-contract/target/generated-sources/protobuf/java/com/github/egorkrylov/grpc/AnalyzeRoomResponseOrBuilder.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-grpc-contract/target/generated-sources/protobuf/java/com/github/egorkrylov/grpc/RoomAnalyticsOuterClass.java

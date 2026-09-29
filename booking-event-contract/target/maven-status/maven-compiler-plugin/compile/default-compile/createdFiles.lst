@@ -1,0 +1,16 @@
+com/github/egorkrylov/bookingeventcontract/GuestEvent.class
+com/github/egorkrylov/bookingeventcontract/BookingEvent$Updated.class
+com/github/egorkrylov/bookingeventcontract/RoomEvent.class
+com/github/egorkrylov/bookingeventcontract/GuestEvent$Deleted.class
+com/github/egorkrylov/bookingeventcontract/BookingEvent$Created.class
+com/github/egorkrylov/bookingeventcontract/RoomEvent$Deleted.class
+com/github/egorkrylov/bookingeventcontract/EventMetadata.class
+com/github/egorkrylov/bookingeventcontract/BookingEvent.class
+com/github/egorkrylov/bookingeventcontract/EventEnvelope.class
+com/github/egorkrylov/bookingeventcontract/GuestEvent$Created.class
+com/github/egorkrylov/bookingeventcontract/RoomEvent$Enriched.class
+com/github/egorkrylov/bookingeventcontract/GuestEvent$Updated.class
+com/github/egorkrylov/bookingeventcontract/RoutingKeys.class
+com/github/egorkrylov/bookingeventcontract/BookingEvent$Deleted.class
+com/github/egorkrylov/bookingeventcontract/RoomEvent$Updated.class
+com/github/egorkrylov/bookingeventcontract/RoomEvent$Created.class

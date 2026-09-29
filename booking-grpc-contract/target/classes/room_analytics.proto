@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "com.github.egorkrylov.grpc";
+
+option java_multiple_files = true;
+
+package roomanalytics;
+
+service RoomAnalytics {
+    rpc AnalyzeRoom(AnalyzeRoomRequest) returns (AnalyzeRoomResponse);
+}
+
+message AnalyzeRoomRequest {
+    string room_id     = 1;
+    string room_type  = 2;
+    int32 capacity    = 3;
+    double price      = 4;
+}
+
+message AnalyzeRoomResponse {
+    string room_id         = 1;
+    double final_price    = 2;
+    string price_category = 3;
+    double discount_price = 4;
+}

@@ -1,0 +1,6 @@
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-event-contract/src/main/java/com/github/egorkrylov/bookingeventcontract/BookingEvent.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-event-contract/src/main/java/com/github/egorkrylov/bookingeventcontract/EventEnvelope.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-event-contract/src/main/java/com/github/egorkrylov/bookingeventcontract/EventMetadata.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-event-contract/src/main/java/com/github/egorkrylov/bookingeventcontract/GuestEvent.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-event-contract/src/main/java/com/github/egorkrylov/bookingeventcontract/RoomEvent.java
+/Users/egorkrylov/IdeaProjects/booking-api-v1.1/booking-event-contract/src/main/java/com/github/egorkrylov/bookingeventcontract/RoutingKeys.java

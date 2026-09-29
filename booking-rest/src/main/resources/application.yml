@@ -1,0 +1,41 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: booking-rest
+  datasource:
+    url: ${BOOKING_DB_URL:jdbc:postgresql://localhost:5432/bookings}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres-dev-only}
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 1000
+  graphql:
+    graphiql:
+      enabled: true
+    http:
+      path: /graphql
+    schema:
+      locations: classpath*:graphql/
+      introspection:
+        enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+dgs:
+  graphql:
+    schema-locations:
+      - classpath*:graphql/**/*.graphqls
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+

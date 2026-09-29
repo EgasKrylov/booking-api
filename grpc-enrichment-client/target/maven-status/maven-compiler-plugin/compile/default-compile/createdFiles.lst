@@ -1,0 +1,5 @@
+com/github/egorkrylov/grpcenrichment/publisher/EnrichmentEventPublisher.class
+com/github/egorkrylov/grpcenrichment/config/GrpcClientConfig.class
+com/github/egorkrylov/grpcenrichment/config/RabbitMQConfig.class
+com/github/egorkrylov/grpcenrichment/listener/RoomCreatedListener.class
+com/github/egorkrylov/grpcenrichment/GrpcEnrichmentClientApplication.class
