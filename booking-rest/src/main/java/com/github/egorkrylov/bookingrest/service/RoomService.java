@@ -4,6 +4,7 @@ import com.github.egorkrylov.bookingapicontract.dto.PagedResponse;
 import com.github.egorkrylov.bookingapicontract.dto.PatchRoomRequest;
 import com.github.egorkrylov.bookingapicontract.dto.RoomRequest;
 import com.github.egorkrylov.bookingapicontract.dto.RoomResponse;
+import com.github.egorkrylov.bookingapicontract.exception.ConflictException;
 import com.github.egorkrylov.bookingapicontract.exception.ResourceNotFoundException;
 import com.github.egorkrylov.bookingrest.domain.Room;
 import com.github.egorkrylov.bookingrest.event.RoomEventPublisher;
@@ -64,6 +65,10 @@ public class RoomService {
 
     @Transactional
     public RoomResponse create(RoomRequest request) {
+        if (roomRepository.existsByRoomNumber(request.roomNumber())) {
+            throw new ConflictException("Комната с таким номером уже существует");
+        }
+
         Room room = Room.builder()
                 .id(UUID.randomUUID())
                 .roomNumber(request.roomNumber())

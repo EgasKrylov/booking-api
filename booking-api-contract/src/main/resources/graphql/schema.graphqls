@@ -97,7 +97,7 @@ input CreateRoomInput {
     roomType: String!
     capacity: Int!
     price: Float!
-    description: String!
+    description: String
 }
 
 input UpdateRoomInput {

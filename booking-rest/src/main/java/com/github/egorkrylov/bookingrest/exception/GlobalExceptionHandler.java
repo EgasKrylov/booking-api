@@ -1,6 +1,7 @@
 package com.github.egorkrylov.bookingrest.exception;
 
 import com.github.egorkrylov.bookingapicontract.dto.ErrorResponse;
+import com.github.egorkrylov.bookingapicontract.exception.ConflictException;
 import com.github.egorkrylov.bookingapicontract.exception.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -52,6 +53,21 @@ public class GlobalExceptionHandler {
                         fieldErrors
                 ));
     }
+
+    @ExceptionHandler(ConflictException.class)
+    public ResponseEntity<ErrorResponse> handleConflictException(ConflictException ex, HttpServletRequest req) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse(
+                        409,
+                        BASE_PROBLEM_URI + "conflict",
+                        "Конфликт",
+                        ex.getMessage(),
+                        req.getRequestURI(),
+                        Instant.now(),
+                        null
+                ));
+    }
+
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleAll(Exception ex, HttpServletRequest req) {
