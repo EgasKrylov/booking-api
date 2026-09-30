@@ -11,6 +11,7 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -31,6 +32,7 @@ public class BookingController implements BookingApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('READER','EDITOR')")
     public PagedModel<EntityModel<BookingResponse>> getAll(int page, int size) {
         PagedResponse<BookingResponse> bookingsResp = bookingService.findAll(null, page, size);
         Page<BookingResponse> pageResp = new PageImpl<>(
@@ -43,6 +45,7 @@ public class BookingController implements BookingApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('READER','EDITOR')")
     public EntityModel<BookingResponse> getBookingById(UUID id) {
         BookingResponse bookingResponse = bookingService.findById(id);
 
@@ -50,6 +53,7 @@ public class BookingController implements BookingApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public ResponseEntity<EntityModel<BookingResponse>> createBooking(BookingRequest request) {
         BookingResponse bookingResponse = bookingService.create(request);
         EntityModel<BookingResponse> entityBooking = bookingModelAssembler.toModel(bookingResponse);
@@ -60,16 +64,19 @@ public class BookingController implements BookingApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public EntityModel<BookingResponse> updateBooking(UUID id, UpdateBookingRequest request) {
         return bookingModelAssembler.toModel(bookingService.update(id, request));
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public EntityModel<BookingResponse> patchBooking(UUID id, PatchBookingRequest request) {
         return bookingModelAssembler.toModel(bookingService.patch(id, request));
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public void deleteBooking(UUID id) {
         bookingService.delete(id);
     }

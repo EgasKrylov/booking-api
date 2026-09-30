@@ -13,6 +13,7 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -43,6 +44,7 @@ public class GuestController implements GuestApi {
 
 
     @Override
+    @PreAuthorize("hasAnyRole('READER','EDITOR')")
     public PagedModel<EntityModel<GuestResponse>> getAll(int page, int size) {
         PagedResponse<GuestResponse> guests = guestService.findAll(page, size);
         Page<GuestResponse> guestsPage = new PageImpl<>(
@@ -55,6 +57,7 @@ public class GuestController implements GuestApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('READER','EDITOR')")
     public EntityModel<GuestResponse> getGuestById(UUID id) {
         GuestResponse guest = guestService.findById(id);
 
@@ -62,6 +65,7 @@ public class GuestController implements GuestApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public ResponseEntity<EntityModel<GuestResponse>> createGuest(GuestRequest request) {
         GuestResponse createdGuest = guestService.create(request);
         EntityModel<GuestResponse> guestResponse = guestModelAssembler.toModel(createdGuest);
@@ -72,6 +76,7 @@ public class GuestController implements GuestApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public EntityModel<GuestResponse> updateGuest(UUID id, GuestRequest request) {
         GuestResponse guestResponse = guestService.update(id, request);
 
@@ -79,6 +84,7 @@ public class GuestController implements GuestApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public EntityModel<GuestResponse> patchGuest(UUID id, PatchGuestRequest request) {
         GuestResponse guestResponse = guestService.patch(id, request);
 
@@ -86,11 +92,13 @@ public class GuestController implements GuestApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public void deleteGuest(UUID id) {
         guestService.delete(id);
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('READER','EDITOR')")
     public PagedModel<EntityModel<BookingResponse>> getBookingsGuest(UUID id, int page, int size) {
         guestService.findById(id);
         PagedResponse<BookingResponse> bookings = bookingService.findAll(id, page, size);

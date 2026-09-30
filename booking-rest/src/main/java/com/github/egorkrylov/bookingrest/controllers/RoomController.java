@@ -14,6 +14,7 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -34,6 +35,7 @@ public class RoomController implements RoomApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('READER','EDITOR')")
     public PagedModel<EntityModel<RoomResponse>> getAll(int page, int size) {
         PagedResponse<RoomResponse> roomResp = roomService.findAll(page, size);
 
@@ -47,11 +49,13 @@ public class RoomController implements RoomApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('READER','EDITOR')")
     public EntityModel<RoomResponse> getRoomById(UUID id) {
         return roomModelAssembler.toModel(roomService.findById(id));
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public ResponseEntity<EntityModel<RoomResponse>> createRoom(RoomRequest request) {
         EntityModel<RoomResponse> entityRoom = roomModelAssembler.toModel(roomService.create(request));
 
@@ -61,16 +65,19 @@ public class RoomController implements RoomApi {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public EntityModel<RoomResponse> updateRoom(UUID id, RoomRequest request) {
         return roomModelAssembler.toModel(roomService.update(id, request));
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public EntityModel<RoomResponse> patchRoom(UUID id, PatchRoomRequest request) {
         return roomModelAssembler.toModel(roomService.patch(id, request));
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('EDITOR')")
     public void deleteRoom(UUID id) {
         roomService.delete(id);
     }
